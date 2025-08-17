@@ -1,6 +1,23 @@
 import React from 'react'
-
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import { useGSAP } from '@gsap/react'
 const Navbar = () => {
+  useGSAP(() => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "nav",
+      start: "bottom top",
+      scrub:true
+    }
+  });
+
+  tl.fromTo(
+    "nav",
+    { backgroundColor: "transparent" },
+    { backgroundColor: "#00000050" }
+  );
+}, []);
   return (
     <nav>
       <div className="container-content">
