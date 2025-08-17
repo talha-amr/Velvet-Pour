@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import "tailwindcss";
+
+@layer components {
+  .container-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-7;
+  }
+}
+@utility text-gradient {
+    background: linear-gradient(to bottom, #ffffff, #898989);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+@font-face {
+  font-family: 'Modern Negra';
+  src: url('/fonts/ModernNegraDemo.woff2') format('woff2'),
+       url('/fonts/ModernNegraDemo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@theme {
+    --color-yellow: #e7d393;
+    --color-white-100: #efefef;
+    --font-sans: "Mona Sans", sans-serif;
+    --font-modern-negra: "Modern Negra", sans-serif;
+    --font-serif: "DM Serif Text", serif;
+}
+html,
+body {
+    width: 100%;
+    background-color: black;
+    color: white;
+    scroll-behavior: smooth;
+    font-family: 'Mono Sans';
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+nav{
+  @apply w-full fixed z-50 ;
+}
+.nav-flex {
+  @apply flex justify-between items-center mx-auto py-5  ;
+}
+.nav-flex p {
+  @apply font-modern-negra  mt-[0.2rem];
+}
+.nav-flex ul {
+  @apply flex gap-5 cursor-pointer text-lg;
+}
+.title{
+  @apply text-3xl font-bold ;
+}
+.noisy {
+        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+ }
+ #hero {
+   @apply relative min-h-dvh z-10 border border-transparent;
+   h1 {
+      @apply text-center md:mt-32 mt-35 text-8xl md:text-[19vw] font-modern-negra ;
+   }
+   .left-leaf{
+     @apply absolute  left-0 md:top-10 xl:top-16 2xl:top-42 md:bottom-auto -bottom-20 md:w-fit w-1/3;
+   }
+   .right-leaf{
+         @apply absolute  right-0 md:top-1 xl:top-5 2xl:top-18 md:bottom-auto bottom-10 md:w-fit w-1/3;
+
+   }
+ }
+ .view-cocktail{
+  @apply font-semibold opacity-80 2xl:text-start text-center hover:text-yellow cursor-pointer;
+ }
