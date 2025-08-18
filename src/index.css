@@ -54,10 +54,10 @@ nav{
   @apply text-3xl font-bold ;
 }
 .noisy {
-        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+        @apply absolute inset-0 size-full bg-[url("/images/noise.png")] ;
  }
  #hero {
-   @apply relative min-h-dvh z-10 border border-transparent;
+   @apply relative min-h-dvh z-20 border border-transparent;
    h1 {
       @apply text-center md:mt-32 mt-35 text-8xl md:text-[19vw] font-modern-negra ;
    }
@@ -70,5 +70,20 @@ nav{
    }
  }
  .view-cocktail{
-  @apply font-semibold opacity-80 2xl:text-start text-center hover:text-yellow cursor-pointer;
+  @apply font-semibold opacity-80 2xl:text-start text-center mt-3 hover:text-yellow cursor-pointer;
  }
+    video {
+        @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover z-0;
+    }
+#cocktails{
+    @apply relative min-h-dvh z-20 border border-transparent;
+}
+#about{
+  @apply relative min-h-dvh  border border-transparent;
+}
+.btn{
+  @apply bg-white text-black rounded-full px-2 py-1 ;
+}
+.grid-container{
+  @apply w-100
+}
