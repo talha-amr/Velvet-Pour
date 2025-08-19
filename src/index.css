@@ -4,7 +4,22 @@
 
 @layer components {
   .container-content {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-7;
+    @apply mx-auto px-4 sm:px-6 lg:px-7;
+    @apply max-w-7xl;       /* default max-width */
+  }
+
+  @screen xl {
+    .container-content {
+      @apply max-w-8xl;     /* wider on extra-large screens */
+      @apply px-8;
+    }
+  }
+
+  @screen 2xl {
+    .container-content {
+      @apply max-w-9xl;     /* even wider on ultra-wide screens */
+      @apply px-10;
+    }
   }
 }
 
