@@ -33,7 +33,7 @@ body {
     background-color: black;
     color: white;
     scroll-behavior: smooth;
-    font-family: 'Mono Sans';
+    font-family: 'Mona Sans';
     overflow-x: hidden;
     padding: 0;
     margin: 0;
@@ -70,7 +70,7 @@ nav{
    }
  }
  .view-cocktail{
-  @apply font-semibold opacity-80 2xl:text-start text-center mt-3 hover:text-yellow cursor-pointer;
+  @apply font-semibold opacity-80 2xl:text-start text-center  hover:text-yellow cursor-pointer;
  }
     video {
         @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover z-0;
@@ -81,9 +81,58 @@ nav{
 #about{
   @apply relative min-h-dvh  border border-transparent;
 }
-.btn{
-  @apply bg-white text-black rounded-full px-2 py-1 ;
+.btn {
+  @apply bg-white text-black rounded-full px-3 py-1
+         transition-all duration-200 ease-in-out
+         cursor-pointer select-none
+         hover:bg-yellow-400 hover:text-black
+         active:scale-95;
 }
-.grid-container{
-  @apply w-100
+        .top-grid {
+            @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
+
+            > div {
+                @apply rounded-3xl overflow-hidden h-72 relative;
+            }
+
+            img {
+                @apply object-cover w-full h-full;
+            }
+        }
+
+        .bottom-grid {
+            @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
+
+            > div {
+                @apply rounded-3xl overflow-hidden h-72 relative;
+            }
+
+            img {
+                @apply object-cover w-full h-full;
+            }
+        }
+@utility radial-gradient {
+    background: radial-gradient(
+            circle at center,
+            #434343 0%,
+            #000 50%,
+            transparent 100%
+    );
+}
+#art{
+  @apply relative min-h-dvh  border border-transparent;
+  h1{
+     @apply text-center md:mt-32 mt-35 text-8xl md:text-[20vw] font-modern-negra text-[#505050];
+  }
+}
+@utility masked-img {
+    mask-image: url("/images/mask-img.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 50%;
+}
+.cocktail-img {
+  @apply md:w-[60vw] w-full h-[50vh] md:h-[70vh] rounded-4xl overflow-hidden 
+         absolute top-[20%] md:top-[60%] md:-translate-y-1/2 
+         left-1/2 -translate-x-1/2;
 }

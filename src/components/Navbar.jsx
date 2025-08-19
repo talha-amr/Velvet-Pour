@@ -15,7 +15,7 @@ const Navbar = () => {
   tl.fromTo(
     "nav",
     { backgroundColor: "transparent" },
-    { backgroundColor: "#00000050" }
+    { backgroundColor: "#00000090" }
   );
 }, []);
   return (
@@ -31,10 +31,10 @@ const Navbar = () => {
 
           {/* Links */}
           <ul className="flex  md:flex-row gap-4 md:gap-6 justify-center md:justify-end items-center">
-            <li className='text-xl whitespace-nowrap'>Cocktails</li>
-            <li className='text-xl whitespace-nowrap'>About Us</li>
-            <li className='text-xl whitespace-nowrap'>The Art</li>
-            <li className='text-xl whitespace-nowrap'>Contact</li>
+            <li className='text-base whitespace-nowrap'>Cocktails</li>
+            <li className='text-base whitespace-nowrap'>About Us</li>
+            <li className='text-base whitespace-nowrap'>The Art</li>
+            <li className='text-base whitespace-nowrap'>Contact</li>
           </ul>
         </div>
       </div>
