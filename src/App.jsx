@@ -16,31 +16,50 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [startAnimations, setStartAnimations] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [fontsLoaded, setFontsLoaded] = useState(false)
 
   useEffect(() => {
     const checkVideoLoaded = () => {
       const video = document.createElement('video')
       
       video.onloadeddata = () => {
-        setIsLoading(false)
-        
-        // Start hero animations immediately after loading
-        setStartAnimations(true)
+        setVideoLoaded(true)
       }
 
       video.onerror = () => {
         console.error('Error loading video')
-        // Fallback: show page even if video fails to load
-        setIsLoading(false)
-        setStartAnimations(true)
+        // Fallback: consider video "loaded" even if it fails
+        setVideoLoaded(true)
       }
 
       video.src = '/videos/output.mp4'
       video.load()
     }
 
+    const checkFontsLoaded = async () => {
+      try {
+        // Wait for fonts to be ready
+        await document.fonts.ready
+        setFontsLoaded(true)
+      } catch (error) {
+        console.error('Error loading fonts:', error)
+        // Fallback: consider fonts "loaded" even if check fails
+        setFontsLoaded(true)
+      }
+    }
+
     checkVideoLoaded()
+    checkFontsLoaded()
   }, [])
+
+  // Check if both video and fonts are loaded
+  useEffect(() => {
+    if (videoLoaded && fontsLoaded) {
+      setIsLoading(false)
+      setStartAnimations(true)
+    }
+  }, [videoLoaded, fontsLoaded])
 
   if (isLoading) {
     return <Loading />
