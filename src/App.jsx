@@ -18,48 +18,62 @@ function App() {
   const [startAnimations, setStartAnimations] = useState(false)
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [fontsLoaded, setFontsLoaded] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  const drinkImages = [
+    '/images/drink1.png',
+    '/images/drink2.png',
+    '/images/drink3.png',
+    '/images/drink4.png'
+  ]
 
   useEffect(() => {
     const checkVideoLoaded = () => {
       const video = document.createElement('video')
       
-      video.onloadeddata = () => {
-        setVideoLoaded(true)
-      }
-
-      video.onerror = () => {
-        console.error('Error loading video')
-        // Fallback: consider video "loaded" even if it fails
-        setVideoLoaded(true)
-      }
-
+      video.onloadeddata = () => setVideoLoaded(true)
+      video.onerror = () => setVideoLoaded(true)
       video.src = '/videos/output.mp4'
       video.load()
     }
 
     const checkFontsLoaded = async () => {
       try {
-        // Wait for fonts to be ready
         await document.fonts.ready
         setFontsLoaded(true)
-      } catch (error) {
-        console.error('Error loading fonts:', error)
-        // Fallback: consider fonts "loaded" even if check fails
+      } catch {
         setFontsLoaded(true)
       }
     }
 
+    const checkImagesLoaded = () => {
+      let loadedCount = 0
+      drinkImages.forEach(src => {
+        const img = new Image()
+        img.src = src
+        img.onload = () => {
+          loadedCount++
+          if (loadedCount === drinkImages.length) setImagesLoaded(true)
+        }
+        img.onerror = () => {
+          console.error('Error loading image:', src)
+          loadedCount++
+          if (loadedCount === drinkImages.length) setImagesLoaded(true)
+        }
+      })
+    }
+
     checkVideoLoaded()
     checkFontsLoaded()
+    checkImagesLoaded()
   }, [])
 
-  // Check if both video and fonts are loaded
   useEffect(() => {
-    if (videoLoaded && fontsLoaded) {
+    if (videoLoaded && fontsLoaded && imagesLoaded) {
       setIsLoading(false)
       setStartAnimations(true)
     }
-  }, [videoLoaded, fontsLoaded])
+  }, [videoLoaded, fontsLoaded, imagesLoaded])
 
   if (isLoading) {
     return <Loading />
