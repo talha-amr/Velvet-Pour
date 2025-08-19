@@ -100,7 +100,6 @@ const Menu = () => {
             {/* Bottom Text */}
             <div className="flex flex-col md:flex-row justify-between items-center  pb-4 w-full px-4  gap-6 md:gap-0">
               <div className="space-y-2 text-center md:text-left">
-                <p>Recipes for:</p>
                 <h1 className="text-4xl md:text-5xl font-modern-negra text-yellow name-anim">
                   {sliderLists[activeIndex].name}
                 </h1>
