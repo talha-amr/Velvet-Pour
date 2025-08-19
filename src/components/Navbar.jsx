@@ -59,6 +59,14 @@ const Navbar = () => {
             </li>
             <li>
               <a 
+                href="#menu" 
+                className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
+              >
+                menu
+              </a>
+            </li>
+            <li>
+              <a 
                 href="#contact" 
                 className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
               >

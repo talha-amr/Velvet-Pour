@@ -70,7 +70,7 @@ const Hero = () => {
                     <div className="md:flex md:justify-between   container-content hidden ">
                         <div className="space-y-4 w-1/2 max-w-2xl">
                             <p className='text-xl hero-content'>Cool. Crisp. Classic</p>
-                            <p className="subtitle text-5xl font-bold hero-content text-yellow">
+                            <p className="subtitle text-5xl font-bold hero-content font-modern-negra text-yellow">
                                 Sip the Spirit<br />of Summer
                             </p>
                         </div>
