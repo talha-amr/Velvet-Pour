@@ -59,8 +59,8 @@ nav {
   @apply flex gap-5 cursor-pointer text-lg;
 }
 
-.title {
-  @apply text-3xl font-bold;
+.nav-flex .title {
+  @apply text-3xl font-bold mt-2;
 }
 
 .noisy {
