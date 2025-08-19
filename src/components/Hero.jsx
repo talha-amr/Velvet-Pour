@@ -2,9 +2,13 @@ import React, { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger, SplitText } from 'gsap/all'
-const Hero = () => {
-    let vidRef=useRef()
+
+const Hero = ({ startAnimations }) => {
+    let vidRef = useRef()
+
     useGSAP(() => {
+        if (!startAnimations) return; // Don't run animations until loading is complete
+
         let titleSplit = new SplitText('.hero-title', {
             type: 'words chars'
         });
@@ -28,38 +32,40 @@ const Hero = () => {
             stagger: 0.1,
             ease: 'expo.Out'
         })
-          let leaf = gsap.timeline({
+
+        let leaf = gsap.timeline({
             scrollTrigger: {
-              trigger: "#hero",
-              start: "top top",
-              end:'bottom top',
-              scrub:true
+                trigger: "#hero",
+                start: "top top",
+                end: 'bottom top',
+                scrub: true
             }
-          });
+        });
         leaf.to(".left-leaf", {
             y: 200
-        }, 0); 
+        }, 0);
 
         leaf.to(".right-leaf", {
             y: -200
         }, 0);
+
         let video = gsap.timeline({
-        scrollTrigger: {
-            trigger: "video",
-            scrub: true,
-            start: () => "center " + (window.innerHeight * 0.6), 
-            end: () => "+=" + window.innerHeight,
-            pin:true,
-            // markers:true
-        },
+            scrollTrigger: {
+                trigger: "video",
+                scrub: true,
+                start: () => "center " + (window.innerHeight * 0.6),
+                end: () => "+=" + window.innerHeight,
+                pin: true,
+            },
         });
 
         vidRef.current.onloadedmetadata = () => {
-        video.to(vidRef.current, {
-            currentTime: vidRef.current.duration,
-        });
-};
-    }, []);
+            video.to(vidRef.current, {
+                currentTime: vidRef.current.duration,
+            });
+        };
+    }, [startAnimations]); // Add startAnimations as dependency
+
     return (
         <div>
             <section id='hero' className='noisy'>
@@ -67,7 +73,7 @@ const Hero = () => {
                 <img className='left-leaf' alt='left-leaf' src='/images/hero-left-leaf.png' />
                 <img className='right-leaf' alt='right-leaf' src='/images/hero-right-leaf.png' />
                 <div className="absolute bottom-20 w-full left-0">
-                    <div className="md:flex md:justify-between   container-content hidden ">
+                    <div className="md:flex md:justify-between container-content hidden">
                         <div className="space-y-4 w-1/2 max-w-2xl">
                             <p className='text-xl hero-content'>Cool. Crisp. Classic</p>
                             <p className="subtitle text-5xl font-bold hero-content font-modern-negra text-yellow">

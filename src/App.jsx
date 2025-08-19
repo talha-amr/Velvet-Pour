@@ -6,6 +6,7 @@ import Contact from './components/Contact'
 import Hero from './components/Hero'
 import Menu from './components/Menu'
 import Navbar from './components/Navbar'
+import Loading from './components/Loading'
 import gsap from 'gsap'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 import { useState, useEffect } from 'react'
@@ -14,34 +15,46 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+  const [startAnimations, setStartAnimations] = useState(false)
 
   useEffect(() => {
-    const handleLoad = () => setIsLoading(false)
-    window.addEventListener('load', handleLoad)
-    return () => window.removeEventListener('load', handleLoad)
+    const checkVideoLoaded = () => {
+      const video = document.createElement('video')
+      
+      video.onloadeddata = () => {
+        setIsLoading(false)
+        
+        // Start hero animations immediately after loading
+        setStartAnimations(true)
+      }
+
+      video.onerror = () => {
+        console.error('Error loading video')
+        // Fallback: show page even if video fails to load
+        setIsLoading(false)
+        setStartAnimations(true)
+      }
+
+      video.src = '/videos/output.mp4'
+      video.load()
+    }
+
+    checkVideoLoaded()
   }, [])
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>
-      {isLoading && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
-          <img
-            src="/images/logo.png"
-            alt="Velvet Pour"
-            className="w-20 h-20 animate-pulse"
-          />
-        </div>
-      )}
-
-      <div className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-700`}>
-        <Navbar/>
-        <Hero/>
-        <Cocktails/>
-        <About/>
-        <Art/>
-        <Menu/>
-        <Contact/>
-      </div>
+      <Navbar/>
+      <Hero startAnimations={startAnimations}/>
+      <Cocktails/>
+      <About/>
+      <Art/>
+      <Menu/>
+      <Contact/>
     </>
   )
 }
