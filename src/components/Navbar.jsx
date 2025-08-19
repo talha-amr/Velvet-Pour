@@ -2,22 +2,24 @@ import React from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import { useGSAP } from '@gsap/react'
+
 const Navbar = () => {
   useGSAP(() => {
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "nav",
-      start: "bottom top",
-      scrub:true
-    }
-  });
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "nav",
+        start: "bottom top",
+        scrub: true,
+      },
+    });
 
-  tl.fromTo(
-    "nav",
-    { backgroundColor: "transparent" },
-    { backgroundColor: "#00000090" }
-  );
-}, []);
+    tl.fromTo(
+      "nav",
+      { backgroundColor: "transparent" },
+      { backgroundColor: "#00000090" }
+    );
+  }, []);
+
   return (
     <nav>
       <div className="container-content">
@@ -30,11 +32,39 @@ const Navbar = () => {
           </div>
 
           {/* Links */}
-          <ul className="flex  md:flex-row gap-4 md:gap-6 justify-center md:justify-end items-center">
-            <li className='text-base whitespace-nowrap'>Cocktails</li>
-            <li className='text-base whitespace-nowrap'>About Us</li>
-            <li className='text-base whitespace-nowrap'>The Art</li>
-            <li className='text-base whitespace-nowrap'>Contact</li>
+          <ul className="flex md:flex-row gap-4 md:gap-6 justify-center md:justify-end items-center">
+            <li>
+              <a 
+                href="#cocktails" 
+                className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
+              >
+                cocktails
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#about" 
+                className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
+              >
+                about us
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#art" 
+                className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
+              >
+                the art
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#contact" 
+                className="text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-200"
+              >
+                contact
+              </a>
+            </li>
           </ul>
         </div>
       </div>

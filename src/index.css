@@ -157,3 +157,6 @@ video {
 #menu {
   @apply relative min-h-dvh border border-transparent;
 }
+#contact {
+  @apply relative min-h-dvh border border-transparent;
+}
