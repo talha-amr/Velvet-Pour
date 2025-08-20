@@ -140,6 +140,16 @@ video {
   h1 {
     @apply text-center md:mt-32 mt-35 text-8xl md:text-[20vw] font-modern-negra text-[#505050];
   }
+  .cocktail-wrapper {
+  @apply relative w-full md:w-[40vw] h-[60vh] flex items-center justify-center;
+}
+
+.cocktail-img {
+  @apply absolute left-1/2 top-[10%] -translate-x-1/2 -translate-y-1/2;
+}
+.masked-img {
+  @apply object-contain w-full h-full;
+}
 }
 
 @utility masked-img {
