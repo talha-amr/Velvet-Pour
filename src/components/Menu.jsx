@@ -63,7 +63,7 @@ const Menu = () => {
         </div>
 
         {/* Image with arrows */}
-        <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] flex justify-center items-center">
+        <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[325px] md:h-[325px] lg:w-[350px] lg:h-[350px] flex justify-center items-center">
           <img
             src={sliderLists[activeIndex].image}
             alt="cocktail-image"

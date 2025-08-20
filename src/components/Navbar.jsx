@@ -16,7 +16,7 @@ const Navbar = () => {
     tl.fromTo(
       "nav",
       { backgroundColor: "transparent" },
-      { backgroundColor: "#00000090" }
+      { backgroundColor: "#00000080" }
     );
   }, []);
 
