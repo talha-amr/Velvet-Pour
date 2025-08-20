@@ -25,9 +25,17 @@ const Cocktails = () => {
     },[])
   return (
    <>
-        <section id='cocktails' className='noisy'>
-            <img src="/images/cocktail-left-leaf.png" alt="cocktail-left-leaf" className='absolute bottom-24 left-0 -z-10 left-anim'/>
-            <img src="/images/cocktail-right-leaf.png" alt="cocktail-right-leaf" className='absolute bottom-24 right-0 -z-10 right-anim'/>
+        <section id='cocktails' className='noisy overflow-hidden'>
+        <img
+            src="/images/cocktail-left-leaf.png"
+            alt="cocktail-left-leaf"
+            className='absolute md:bottom-24 bottom-0 left-0 -z-10 left-anim w-50 md:w-auto'
+        />
+        <img
+            src="/images/cocktail-right-leaf.png"
+            alt="cocktail-right-leaf"
+            className='absolute md:bottom-24 bottom-0 right-0 -z-10 right-anim w-50 md:w-auto'
+        />
             <div className="container-content">
                 <div className="flex flex-col md:flex-row w-full justify-between mt-20 gap-8 md:gap-0 px-4 md:px-0">
                     {/* Most Popular Cocktails Column */}
