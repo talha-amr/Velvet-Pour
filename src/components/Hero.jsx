@@ -73,7 +73,7 @@ const Hero = ({ startAnimations }) => {
                 <img className='left-leaf' alt='left-leaf' src='/images/hero-left-leaf.png' />
                 <img className='right-leaf' alt='right-leaf' src='/images/hero-right-leaf.png' />
                 
-                <div className="absolute md:bottom-20 bottom-30 w-full left-0">
+                <div className="absolute md:bottom-20 bottom-30 top-auto md:top-[30vh] w-full left-0">
                     <div className="container-content">
                         {/* Desktop Layout - Left and Right Content */}
                         <div className="md:flex md:justify-between hidden">
