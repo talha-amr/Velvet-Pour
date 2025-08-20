@@ -68,7 +68,7 @@ nav {
 }
 
 #hero {
-  @apply relative min-h-dvh z-20 border border-transparent;
+  @apply relative min-h-dvh z-20 border border-transparent overflow-hidden;
 
   h1 {
     @apply text-center md:mt-32 mt-35 text-8xl md:text-[19vw] font-modern-negra;
