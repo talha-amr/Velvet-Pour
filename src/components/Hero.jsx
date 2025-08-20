@@ -72,24 +72,43 @@ const Hero = ({ startAnimations }) => {
                 <h1 className='hero-title'>MOJITO</h1>
                 <img className='left-leaf' alt='left-leaf' src='/images/hero-left-leaf.png' />
                 <img className='right-leaf' alt='right-leaf' src='/images/hero-right-leaf.png' />
-                <div className="absolute bottom-20 w-full left-0">
-                    <div className="md:flex md:justify-between container-content hidden">
-                        <div className="space-y-4 w-1/2 max-w-2xl">
-                            <p className='text-xl hero-content'>Cool. Crisp. Classic</p>
-                            <p className="subtitle text-5xl font-bold hero-content font-modern-negra text-yellow">
-                                Sip the Spirit<br />of Summer
-                            </p>
+                
+                <div className="absolute md:bottom-20 bottom-50 w-full left-0">
+                    <div className="container-content">
+                        {/* Desktop Layout - Left and Right Content */}
+                        <div className="md:flex md:justify-between hidden">
+                            <div className="space-y-4 w-1/2 max-w-2xl">
+                                <p className='text-xl hero-content'>Cool. Crisp. Classic</p>
+                                <p className="subtitle text-5xl font-bold hero-content font-modern-negra text-yellow">
+                                    Sip the Spirit<br />of Summer
+                                </p>
+                            </div>
+
+                            <div className='space-y-2 max-w-md w-xs text-left text-lg subtitle hero-content'>
+                                <p>
+                                    Every cocktail on our menu is a blend of premium ingredients, creative flair, and timeless recipes — designed to delight your senses.
+                                </p>
+                                <a href="#cocktails" className='view-cocktail inline-block mt-4 text-yellow hover:text-yellow-400 transition-colors duration-200'>
+                                    View Cocktail
+                                </a>
+                            </div>
                         </div>
 
-                        <div className='space-y-2 max-w-md w-xs text-left text-lg subtitle hero-content'>
-                            <p>
-                                Every cocktail on our menu is a blend of premium ingredients, creative flair, and timeless recipes — designed to delight your senses.
-                            </p>
-                            <a className='view-cocktail'>View Cocktail</a>
+                        {/* Mobile Layout - Only Right Content Centered */}
+                        <div className="md:hidden flex justify-center">
+                            <div className='space-y-4 max-w-md text-center text-lg subtitle hero-content px-4'>
+                                <p className="text-white">
+                                    Every cocktail on our menu is a blend of premium ingredients, creative flair, and timeless recipes — designed to delight your senses.
+                                </p>
+                                <a href="#cocktails" className='view-cocktail inline-block mt-4 text-yellow hover:text-yellow-400 transition-colors duration-200 font-semibold'>
+                                    View Cocktail
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+            
             <div className="video absolute inset-0">
                 <video
                     ref={vidRef}
