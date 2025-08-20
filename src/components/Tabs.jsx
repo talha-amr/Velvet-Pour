@@ -21,7 +21,7 @@ const Tabs = ({ items, activeIndex, onTabClick }) => {
         gsap.to(tab, { opacity: 1, duration: 0.5 });
         gsap.to(tab, { borderColor: "#ffffff", duration: 0.5 }); // active border
       } else {
-        gsap.to(tab, { opacity: 0.5, duration: 0.5 });
+        gsap.to(tab, { opacity: 0.4, duration: 0.5 });
         gsap.to(tab, { borderColor: "transparent", duration: 0.5 }); // inactive border
       }
     });
