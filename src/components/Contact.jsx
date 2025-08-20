@@ -58,7 +58,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex flex-col mt-3 md:mt-4 gap-3 md:gap-4 justify-center items-center">
+          <div className="flex flex-col mt-3  md:mt-4 gap-3 md:gap-4 justify-center items-center">
             <p className="text-center text-sm md:text-base">Socials</p> {/* hidden visually but readable by screen readers */}
             <div className="flex justify-center items-center gap-6 md:gap-9">
               <a href="https://www.instagram.com/talhaamirx/" target="_blank" rel="noopener noreferrer">

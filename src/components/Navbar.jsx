@@ -28,7 +28,9 @@ const Navbar = () => {
           {/* Logo + Title */}
           <div className="flex gap-2 justify-center md:justify-start items-center mb-4 md:mb-0">
             <img src='/images/logo.png' alt='logo' className="w-8 h-8" />
-            <p className="title ">Velvet Pour</p>
+     <a href="#hero" className="text-3xl font-bold mt-2 font-modern-negra ">
+  Velvet Pour
+</a>
           </div>
 
           {/* Links */}
