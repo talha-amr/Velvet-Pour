@@ -61,29 +61,29 @@ const About = () => {
                     </div>
                     </div>
                     <div className="top-grid mt-10">
-                        <div className="md:col-span-3">
+                        <div className="md:col-span-2 lg:col-span-3">
                             <div className="noisy" />
-                            <img src="/images/abt1.png" alt="grid-img-1 " className='overflow-hidden' />
+                            <img src="/images/abt1.png" alt="grid-img-1" />
                         </div>
-                        <div className="md:col-span-6">
+                        <div className="md:col-span-4 lg:col-span-6">
                             <div className="noisy" />
-                            <img src="/images/abt2.png" alt="grid-img-1 " className='overflow-hidden' />
+                            <img src="/images/abt2.png" alt="grid-img-2" />
                         </div>
-                        <div className="md:col-span-3">
+                        <div className="md:col-span-2 lg:col-span-3">
                             <div className="noisy" />
-                            <img src="/images/abt3.png" alt="grid-img-1 " className='overflow-hidden' />
+                            <img src="/images/abt3.png" alt="grid-img-3" />
                         </div>
                     </div>
-                    <div className="bottom-grid mt-2">
-                        <div className="md:col-span-9">
-                            <div className="noisy" />
-                            <img src="/images/abt4.png" alt="grid-img-1 " className='overflow-hidden' />
-                        </div>
-                        <div className="md:col-span-3">
-                            <div className="noisy" />
-                            <img src="/images/abt5.png" alt="grid-img-1 " className='overflow-hidden' />
-                        </div>
 
+                    <div className="bottom-grid mt-2">
+                        <div className="md:col-span-4 lg:col-span-9">
+                            <div className="noisy" />
+                            <img src="/images/abt4.png" alt="grid-img-4" />
+                        </div>
+                        <div className="md:col-span-2 lg:col-span-3">
+                            <div className="noisy" />
+                            <img src="/images/abt5.png" alt="grid-img-5" />
+                        </div>
                     </div>
                 </div>
             </section>
