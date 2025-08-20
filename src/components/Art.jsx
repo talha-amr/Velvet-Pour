@@ -8,7 +8,7 @@ const Art = () => {
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '#art',
-                start: '10% top',
+                start: '20% top',
                 between: 'bottom center',
                 scrub: 1.5,
                 pin: true,
