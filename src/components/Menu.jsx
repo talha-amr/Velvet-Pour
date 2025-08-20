@@ -58,7 +58,7 @@ const Menu = () => {
       {/* Content */}
       <div className="container-content relative z-10 flex flex-col justify-center items-center gap-4 md:gap-8 w-full h-full py-4 md:py-0">
         {/* Tabs */}
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mt-3">
           <Tabs items={sliderLists} activeIndex={activeIndex} onTabClick={setActiveIndex} />
         </div>
 

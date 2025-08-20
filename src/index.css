@@ -85,7 +85,7 @@ nav {
 }
 
 .view-cocktail {
-  @apply font-semibold opacity-80 2xl:text-start text-center hover:text-yellow cursor-pointer;
+  @apply font-semibold opacity-60 2xl:text-start text-white text-center hover:text-yellow hover:opacity-100 cursor-pointer;
 }
 
 video {

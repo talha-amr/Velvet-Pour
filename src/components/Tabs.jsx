@@ -12,20 +12,31 @@ const funkyColors = [
 const Tabs = ({ items, activeIndex, onTabClick }) => {
   const tabRefs = useRef([]);
 
-  useGSAP(() => {
-    tabRefs.current.forEach((tab, index) => {
-      if (!tab) return;
+useGSAP(() => {
+  tabRefs.current.forEach((tab, index) => {
+    if (!tab) return;
 
-      // Animate opacity
-      if (index === activeIndex) {
-        gsap.to(tab, { opacity: 1, duration: 0.5 });
-        gsap.to(tab, { borderColor: "#ffffff", duration: 0.5 }); // active border
-      } else {
-        gsap.to(tab, { opacity: 0.4, duration: 0.5 });
-        gsap.to(tab, { borderColor: "transparent", duration: 0.5 }); // inactive border
-      }
-    });
-  }, [activeIndex]);
+    if (index === activeIndex) {
+      // Active: keep gradient text
+      gsap.to(tab, {
+        opacity: 1,
+        duration: 0.5,
+        color: "transparent", // required for gradient
+        borderColor: "#ffffff"
+      });
+      tab.classList.add("bg-clip-text", "bg-gradient-to-r"); // make sure gradient class exists
+    } else {
+      // Inactive: make text solid white
+      gsap.to(tab, {
+        opacity: 0.2, // keep visible
+        duration: 0.5,
+        color: "#ffffff",
+        borderColor: "transparent"
+      });
+      tab.classList.remove("bg-clip-text", "bg-gradient-to-r");
+    }
+  });
+}, [activeIndex]);
 
   return (
     <div className="flex flex-wrap border-gray-400 mt-4 md:mt-10 justify-center gap-4 md:gap-15 items-center px-2 md:px-0">

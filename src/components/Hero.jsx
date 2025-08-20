@@ -100,7 +100,7 @@ const Hero = ({ startAnimations }) => {
                                 <p className="text-white">
                                     Every cocktail on our menu is a blend of premium ingredients, creative flair, and timeless recipes — designed to delight your senses.
                                 </p>
-                                <a href="#cocktails" className='view-cocktail inline-block mt-4 text-yellow hover:text-yellow-400 transition-colors duration-200 font-semibold'>
+                                <a href="#cocktails" className='view-cocktail inline-block mt-4 np hover:text-yellow-400 transition-colors duration-200 font-semibold'>
                                     View Cocktail
                                 </a>
                             </div>
