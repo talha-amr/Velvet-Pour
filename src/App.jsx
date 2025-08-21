@@ -12,7 +12,7 @@ import { ScrollTrigger, SplitText } from 'gsap/all'
 import { useState, useEffect } from 'react'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
-
+window.addEventListener("load", () => ScrollTrigger.refresh());
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [startAnimations, setStartAnimations] = useState(false)
@@ -78,6 +78,7 @@ function App() {
   if (isLoading) {
     return <Loading />
   }
+
 
   return (
     <>
