@@ -93,11 +93,11 @@ video {
 }
 
 #cocktails {
-  @apply relative min-h-dvh z-20 border border-transparent;
+  @apply relativemin-h-[100svh] md:min-h-[100dvh] z-20 border border-transparent;
 }
 
 #about {
-  @apply relative min-h-dvh border border-transparent;
+  @apply relative min-h-[100svh] md:min-h-[100dvh] border border-transparent;
 }
 
 .btn {
@@ -135,7 +135,7 @@ video {
 }
 
 #art {
-  @apply relative min-h-dvh border border-transparent;
+  @apply relative min-h-[100svh] md:min-h-[100dvh] border border-transparent;
 
   h1 {
     @apply text-center md:mt-32 mt-35 text-8xl md:text-[20vw] font-modern-negra text-[#505050];
@@ -164,10 +164,10 @@ video {
 }
 
 #menu {
-  @apply relative min-h-dvh border border-transparent;
+  @apply relative min-h-[100svh] md:min-h-[100dvh] border border-transparent;
 }
 #contact {
-  @apply relative min-h-dvh border border-transparent;
+  @apply relative min-h-[100svh] md:min-h-[100dvh] border border-transparent;
 }
 
 @layer utilities {
