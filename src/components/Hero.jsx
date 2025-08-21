@@ -2,21 +2,24 @@ import React, { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger, SplitText } from 'gsap/all'
-import { useMediaQuery } from 'react-responsive'
 
 const Hero = ({ startAnimations }) => {
-       const vidRef = useRef();
-    const isMobile = useMediaQuery({ maxWidth: 767 });
+    let vidRef = useRef()
 
     useGSAP(() => {
-        if (!startAnimations) return;
+        if (!startAnimations) return; // Don't run animations until loading is complete
 
-        // Text animations (same for all screens)
-        const titleSplit = new SplitText('.hero-title', { type: 'words chars' });
-        const paragraphSplit = new SplitText('.hero-content', { type: 'lines' });
-        titleSplit.chars.forEach(char => char.classList.add("text-gradient"));
+        let titleSplit = new SplitText('.hero-title', {
+            type: 'words chars'
+        });
 
-        const tl = gsap.timeline();
+        let paragraphSplit = new SplitText('.hero-content', {
+            type: 'lines'
+        });
+
+        titleSplit.chars.forEach((char) => char.classList.add("text-gradient"));
+
+        let tl = gsap.timeline();
         tl.from(titleSplit.chars, {
             opacity: 0,
             yPercent: 100,
@@ -28,38 +31,25 @@ const Hero = ({ startAnimations }) => {
             yPercent: 100,
             stagger: 0.1,
             ease: 'expo.Out'
+        })
+
+        let leaf = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#hero",
+                start: "top top",
+                end: 'bottom top',
+                scrub: true
+            }
         });
+        leaf.to(".left-leaf", {
+            y: 200
+        }, 0);
 
-        // Desktop leaf + arrow timeline (keep existing values)
-        if (!isMobile) {
-            const leaf = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "top top",
-                    end: 'bottom top',
-                    scrub: true
-                }
-            });
-            leaf.to(".left-leaf", { y: 200 }, 0);
-            leaf.to(".right-leaf", { y: -200 }, 0);
-        }
+        leaf.to(".right-leaf", {
+            y: -200
+        }, 0);
 
-        // Mobile leaf + arrow timeline
-        if (isMobile) {
-            const leafMobile = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "top top",
-                    end: 'bottom top',
-                    scrub: true
-                }
-            });
-            leafMobile.to(".left-leaf", { y: -40 }, 0);
-            leafMobile.to(".right-leaf", { y: -40 }, 0);
-        }
-
-        // Video timeline (keep your current start/end values)
-        const video = gsap.timeline({
+        let video = gsap.timeline({
             scrollTrigger: {
                 trigger: "video",
                 scrub: true,
@@ -70,9 +60,12 @@ const Hero = ({ startAnimations }) => {
         });
 
         vidRef.current.onloadedmetadata = () => {
-            video.to(vidRef.current, { currentTime: vidRef.current.duration });
+            video.to(vidRef.current, {
+                currentTime: vidRef.current.duration,
+            });
         };
-    }, [startAnimations]);
+    }, [startAnimations]); // Add startAnimations as dependency
+
     return (
         <div>
             <section id='hero' className='noisy'>
