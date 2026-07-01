@@ -19,6 +19,7 @@ function App() {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [fontsLoaded, setFontsLoaded] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [videoUrl, setVideoUrl] = useState(null)
 
   const drinkImages = [
     '/images/drink1.png',
@@ -31,13 +32,18 @@ function App() {
   ]
 
   useEffect(() => {
-    const checkVideoLoaded = () => {
-      const video = document.createElement('video')
-      
-      video.onloadeddata = () => setVideoLoaded(true)
-      video.onerror = () => setVideoLoaded(true)
-      video.src = '/videos/output.mp4'
-      video.load()
+    const checkVideoLoaded = async () => {
+      try {
+        const response = await fetch('/videos/output.mp4');
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        setVideoUrl(url);
+        setVideoLoaded(true);
+      } catch (error) {
+        console.error("Error loading video:", error);
+        setVideoUrl('/videos/output.mp4');
+        setVideoLoaded(true);
+      }
     }
 
     const checkFontsLoaded = async () => {
@@ -92,7 +98,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Hero startAnimations={startAnimations}/>
+      <Hero startAnimations={startAnimations} videoUrl={videoUrl}/>
       <Cocktails/>
       <About/>
       <Art/>

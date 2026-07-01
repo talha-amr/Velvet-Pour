@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 
-const Hero = ({ startAnimations }) => {
+const Hero = ({ startAnimations, videoUrl = '/videos/output.mp4' }) => {
     let vidRef = useRef()
 
     useGSAP(() => {
@@ -115,7 +115,7 @@ const Hero = ({ startAnimations }) => {
                 muted
                 playsInline
                 preload="auto"
-                src="/videos/output.mp4"
+                src={videoUrl}
             />
         </div>
         </div>
