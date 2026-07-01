@@ -59,17 +59,11 @@ const Hero = ({ startAnimations }) => {
             },
         });
 
-        const setupVideoAnimation = () => {
+        vidRef.current.onloadedmetadata = () => {
             video.to(vidRef.current, {
                 currentTime: vidRef.current.duration,
             });
         };
-
-        if (vidRef.current.readyState >= 1) {
-            setupVideoAnimation();
-        } else {
-            vidRef.current.onloadedmetadata = setupVideoAnimation;
-        }
     }, [startAnimations]); // Add startAnimations as dependency
 
     return (

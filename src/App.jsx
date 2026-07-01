@@ -34,7 +34,7 @@ function App() {
     const checkVideoLoaded = () => {
       const video = document.createElement('video')
       
-      video.oncanplaythrough = () => setVideoLoaded(true)
+      video.onloadeddata = () => setVideoLoaded(true)
       video.onerror = () => setVideoLoaded(true)
       video.src = '/videos/output.mp4'
       video.load()
