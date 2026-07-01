@@ -24,14 +24,17 @@ function App() {
     '/images/drink1.png',
     '/images/drink2.png',
     '/images/drink3.png',
-    '/images/drink4.png'
+    '/images/drink4.png',
+    '/images/noise.png',
+    '/images/hero-left-leaf.png',
+    '/images/hero-right-leaf.png'
   ]
 
   useEffect(() => {
     const checkVideoLoaded = () => {
       const video = document.createElement('video')
       
-      video.onloadeddata = () => setVideoLoaded(true)
+      video.oncanplaythrough = () => setVideoLoaded(true)
       video.onerror = () => setVideoLoaded(true)
       video.src = '/videos/output.mp4'
       video.load()
@@ -39,10 +42,16 @@ function App() {
 
     const checkFontsLoaded = async () => {
       try {
-        await document.fonts.ready
-        setFontsLoaded(true)
-      } catch {
-        setFontsLoaded(true)
+        await Promise.all([
+          document.fonts.load('16px "Modern Negra"'),
+          document.fonts.load('16px "DM Serif Text"'),
+          document.fonts.load('16px "Mona Sans"')
+        ]);
+        await document.fonts.ready;
+        setFontsLoaded(true);
+      } catch (error) {
+        console.error("Font loading error:", error);
+        setFontsLoaded(true);
       }
     }
 
