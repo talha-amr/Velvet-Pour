@@ -1,12 +1,57 @@
-# React + Vite
+# Velvet Pour
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium beverage landing page built around expressive art direction, cinematic media, and scroll-based animation.
 
-Currently, two official plugins are available:
+[Live experience](https://velvet-pour-alpha-smoky.vercel.app/) · [View repository](https://github.com/talha-amr/Velvet-Pour)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+Velvet Pour is a responsive creative frontend project that uses animation to guide visitors through its drinks, story, artwork, menu, and contact sections. A custom loading flow waits for key video, image, and font assets before starting the experience.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Highlights
+
+- Animated hero with cinematic video
+- ScrollTrigger-powered section transitions
+- Split-text typography animation
+- Custom loading experience
+- Preloading for important images and fonts
+- Responsive cocktails, art, menu, and contact sections
+- Component-based React architecture
+
+## Built with
+
+- React 19
+- Vite
+- Tailwind CSS 4
+- GSAP
+- ScrollTrigger
+- SplitText
+
+## Run locally
+
+```bash
+git clone https://github.com/talha-amr/Velvet-Pour.git
+cd Velvet-Pour
+npm install
+npm run dev
+```
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Core sections
+
+- Hero
+- Cocktails
+- About
+- Art
+- Menu
+- Contact
+
+## Author
+
+**Muhamad Talha Amir** — [GitHub](https://github.com/talha-amr)
